@@ -9,6 +9,7 @@ const doctorRoutes = require('./routes/doctorRoutes');
 const receptionistRoutes = require('./routes/receptionistRoutes');
 const patientRoutes = require('./routes/patientRoutes');
 const loginRoute = require('./routes/loginRoute');
+
 const corsOptions = {
     origin: process.env.FRONTEND_URL,
     methods: ['GET', 'POST', 'PUT', 'DELETE'], 
@@ -20,7 +21,8 @@ connectDB();
 
 app.use(bodyParser.json());
 
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
+app.use(cors());
 app.use('/api/doctors', doctorRoutes);
 app.use('/api/receptionist', receptionistRoutes);
 app.use('/api/patients', patientRoutes);
